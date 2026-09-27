@@ -15,21 +15,6 @@ variables:
   schema_name:
     description: The schema to use
 
-# targets:
-#   dev:
-#     # The default target uses 'mode: development' to create a development copy.
-#     # - Deployed resources get prefixed with '[dev my_user_name]'
-#     # - Any job schedules and triggers are paused by default.
-#     # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
-#     mode: development
-#     default: true
-#     workspace:
-#       host: http://127.0.0.1:7073
-#     variables:
-#       catalog: lakehouse
-#       schema: dev
-
-
   
 targets:
   dev:
@@ -39,7 +24,7 @@ targets:
       source_linked_deployment: false
     workspace:
       host: https://dbc-a1a7be2f-6615.cloud.databricks.com
-      profile: dev
+      # profile: dev
     variables:
       catalog_name: dev_catalog
       schema_name: information_schema
@@ -48,7 +33,7 @@ targets:
     mode: production
     workspace:
       host: https://dbc-ac2d5ca3-9a73.cloud.databricks.com
-      profile: prod
+      # profile: prod
       root_path: /Workspace/Users/dummy777mail@gmail.com/.bundle/${bundle.name}/${bundle.target}
     variables:
       catalog_name: prod_catalog
