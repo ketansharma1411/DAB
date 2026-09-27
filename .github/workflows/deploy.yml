@@ -1,3 +1,5 @@
+name: Deploy DAB
+
 on:
   push:
     branches:
@@ -15,6 +17,7 @@ jobs:
         uses: databricks/setup-cli@main
 
       - name: Deploy bundle to dev
+        working-directory: DAB_learning
         env:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_DEV_HOST }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_DEV_TOKEN }}
@@ -33,6 +36,7 @@ jobs:
         uses: databricks/setup-cli@main
 
       - name: Deploy bundle to prod
+        working-directory: DAB_learning
         env:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_PROD_HOST }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_PROD_TOKEN }}
