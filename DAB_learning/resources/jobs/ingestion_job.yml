@@ -1,0 +1,15 @@
+resources:
+  jobs:
+    ingestion_pipeline:
+      name: ingestion_pipeline
+      tasks:
+        - task_key: ingestion
+          notebook_task:
+            notebook_path: ../../src/Notebooks/ingestion.ipynb
+            base_parameters:
+              catalog_name: ${var.catalog_name}
+              schema_name: ${var.schema_name}
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
